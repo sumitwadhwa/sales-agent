@@ -1,1 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sales-agent
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sales-agent
+  template:
+    metadata:
+      labels:
+        app: sales-agent
+    spec:
+      containers:
+      - name: sales-agent
+        image: gcr.io/YOUR_PROJECT_ID/sales-agent:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: sales-agent-config
+              key: DATABASE_URL
 
