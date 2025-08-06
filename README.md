@@ -12,7 +12,6 @@ A production-grade FastAPI application with SOLID principles and modular archite
 
 ## 🚀 Run Locally
 
-```bash
 docker build -t sales-agent .
 docker run -p 8000:8000 sales-agent
 
