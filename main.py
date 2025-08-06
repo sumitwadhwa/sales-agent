@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from .api import router
+from app.api.routes import router
 
-app = FastAPI(title="Sales Agent Microservice")
+app = FastAPI(title="Sales Agent")
 
 app.include_router(router)
+
